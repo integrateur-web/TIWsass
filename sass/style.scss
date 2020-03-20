@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i|Roboto+Slab:100,200,300,400,500,600,700,800,900|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+
+
+$police-principale: 'Roboto';
+$police-titre: 'Roboto Condensed';
+$police-secondaire: 'Roboto Slab';
+$police-mono: 'Roboto Mono';
+$pp:$police-principale;
+$pt:$police-titre;
+$ps:$police-secondaire;
+$pm:$police-mono;
+
+
+$tablet-width: 768px;
+$desktop-width: 992px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop{
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin border-radius($valeur:5px,$marge:5px){
+    border-radius: $valeur;
+    margin:$marge;
+}
+.coin{
+    @include border-radius;
+}
+.coinrond{
+    @include border-radius(20px,10px);
+}
+@mixin opacité($valeur:1){
+    color:rgba(255,0,0,$valeur);
+}
+.red{
+    @include opacité(.7);
+}
+
+$couleur-principal: #657429;
+$couleur-secondaire: #704529;
+$cp: $couleur-principal;
+$cs: $couleur-secondaire;
+
+%monplaceholder{
+    border:1px solid rgba(0,0,0,05);
+    border-radius: 20px 0;
+    padding: .5em;
+    font:{
+        weight: bold;
+        family:$pm;
+    }
+    color:#fff;
+    margin: 5px;
+    opacity: .7;
+    &:hover{
+        opacity: 1;
+    }
+}
+.block{
+    &-error{
+        @extend %monplaceholder;
+        background-color: red;
+    }
+    &-valid{
+        @extend %monplaceholder;
+        background-color: green;
+    }
+    &-warning{
+        @extend %monplaceholder;
+        background-color: orange;
+    }
+    &-info{
+        @extend %monplaceholder;
+        background-color: blue;
+    }
+}
+
+.maclass{
+    font-size: 1.3em;
+    color: blue;
+    margin: 5px;
+}
+.autreClass{
+    @extend .maclass;
+    color: red;
+}
+
+body{
+    font-family: $pp;
+    background: #efefef;
+    color: $cp !important;
+    a{
+        color: red;
+        font-size: 2em;
+        transition: all 1s ease;
+        &:hover{
+            color: purple;
+        }
+        &.lienautre{
+            font-size: 1.7em;
+        }
+    }
+    #masection{
+        a{
+            color: chocolate;
+            font-size: 1.5em;
+            &:hover{
+                color: goldenrod;
+            }
+        }
+    }
+    h1,h2,h3,h4{
+        font-family: $pt;
+    }
+    blockquote{
+        font-family: $pm;
+    }
+    em,strong{
+        font-family: $ps;
+    }
+    h1{
+        color: #999;
+        transition: all 1s ease;
+        &:hover{
+            color: #000;
+        }
+    }
+    div:not([class^=block]){
+        a{
+            
+        }
+        &:hover,&.class{
+            background: red;
+        }
+    }
+    div{
+        background-color: $cs;
+        .foo{
+            color: activecaption;
+            background-color: yellow;
+            &-bar{
+                color: bisque;
+                background-color: yellow;
+            }
+        }
+    }
+    p{
+        font:{
+            size: 1.2em;
+            weight: bold;
+            family: serif;
+        }
+    }
+    
+    @include tablet {
+        background-color: #333;
+    }
+
+    @include desktop {
+        background-color: #ccc;
+    }
+     
+}
+
+
+
+
+
+
+
+
+ 
