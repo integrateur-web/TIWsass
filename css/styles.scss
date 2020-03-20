@@ -1,0 +1,57 @@
+$couleur-principal: #657429;
+$cp: $couleur-principal;
+body {
+    background: #efefef;
+    color: $cp !important;
+    a {
+        color: red;
+        font-size: 2em;
+        transition: all 1s ease;
+        &:hover {
+            color: purple;
+        }
+        &.lienautre {
+            font-size: 1.7em;
+        }
+    }
+    #masection {
+        a {
+            color: chocolate;
+            font-size: 1.5em;
+            &:hover {
+                color: goldenrod;
+            }
+        }
+    }
+    h1 {
+        color: #999;
+        transition: all 1s ease;
+        &:hover {
+            color: #000;
+        }
+    }
+    div {
+        a {}
+        &:hover,
+        &.class {
+            background: red;
+        }
+    }
+    div {
+        .foo {
+            color: activecaption;
+            background-color: yellow;
+            &-bar {
+                color: bisque;
+                background-color: yellow;
+            }
+        }
+    }
+    p {
+        font: {
+            size: 1.2em;
+            weight: bold;
+            family: serif;
+        }
+    }
+}
