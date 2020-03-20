@@ -11,6 +11,41 @@ $couleur-principal: #657429;
 $couleur-secondaire: #704529;
 $cp: $couleur-principal;
 $cs: $couleur-secondaire;
+%monplaceholder {
+    border: 1px solid rgba(0, 0, 0, 05);
+    border-radius: 20px 0;
+    padding: .5em;
+    font: {
+        weight: bold;
+        family: $pm;
+    }
+    color:#fff;
+    margin: 5px;
+    opacity: .7;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.block {
+    &-error {
+        @extend %monplaceholder;
+        background-color: red;
+    }
+    &-valid {
+        @extend %monplaceholder;
+        background-color: green;
+    }
+    &-warning {
+        @extend %monplaceholder;
+        background-color: orange;
+    }
+    &-info {
+        @extend %monplaceholder;
+        background-color: blue;
+    }
+}
+
 body {
     font-family: $pp;
     background: #efefef;
@@ -55,7 +90,7 @@ body {
             color: #000;
         }
     }
-    div {
+    div:not([class^=block]) {
         a {}
         &:hover,
         &.class {
@@ -102,35 +137,5 @@ body {
     }
     @include desktop {
         color: turquoise;
-    }
-}
-
-%monplaceholder {
-    border: 1px solid rgba(0, 0, 0, 05);
-    border-radius: 20px 0;
-    padding: .5em;
-    font: {
-        weight: bold;
-        family: $pm;
-    }
-    color:#fff;
-}
-
-.block {
-    &-error {
-        @extend %monplaceholder;
-        background-color: red;
-    }
-    &-valid {
-        @extend %monplaceholder;
-        background-color: green;
-    }
-    &-warning {
-        @extend %monplaceholder;
-        background-color: orange;
-    }
-    &-info {
-        @extend %monplaceholder;
-        background-color: blue;
     }
 }
